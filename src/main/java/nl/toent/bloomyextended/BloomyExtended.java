@@ -79,7 +79,7 @@ public class BloomyExtended implements ModInitializer {
 
 		// Create pages
 		NbtList pages = new NbtList();
-		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Welcome to the modpack! Here's how to use it..."))));
+		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Welcome to The Bloomy Modpack! The biggest change over vanilla in the pack is the LevelZ mod by Globox1997."))));
 		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Page 2: Instructions go here..."))));
 		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Page 3: More instructions..."))));
 
