@@ -72,8 +72,10 @@ public class BloomyExtended implements ModInitializer {
 
 		// Create book item
 		ItemStack bookStack = new ItemStack(Items.WRITTEN_BOOK);
+		NbtCompound tag = bookStack.getOrCreateNbt();
 
-		bookStack.setCustomName(Text.literal("The Bloomy Modpack"));
+		tag.putString("title", "The Bloomy Modpack");
+		tag.putString("author", "toent");
 
 		// Create pages
 		NbtList pages = new NbtList();
@@ -82,7 +84,7 @@ public class BloomyExtended implements ModInitializer {
 		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Page 3: More instructions..."))));
 
 		// Set the pages in the book's NBT data
-		NbtCompound tag = bookStack.getOrCreateNbt();
+
 		tag.put("pages", pages);
 		bookStack.setNbt(tag);
 
