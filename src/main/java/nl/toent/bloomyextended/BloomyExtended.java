@@ -1,6 +1,7 @@
 package nl.toent.bloomyextended;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.item.ItemStack;
@@ -33,8 +34,10 @@ public class BloomyExtended implements ModInitializer {
 			}
 		});
 
-		ServerTickEvents.END_SERVER_TICK.register((world) -> {
-			initializeServerCommands = false;
+		ClientPlayConnectionEvents.DISCONNECT.register((handler, client) ->{
+			client.execute(() -> {
+				initializeServerCommands = false;
+			});
 		});
 
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, world) -> {
