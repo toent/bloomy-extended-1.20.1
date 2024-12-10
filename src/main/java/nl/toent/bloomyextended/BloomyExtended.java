@@ -73,6 +73,8 @@ public class BloomyExtended implements ModInitializer {
 		// Create book item
 		ItemStack bookStack = new ItemStack(Items.WRITTEN_BOOK);
 
+		bookStack.setCustomName(Text.literal("The Bloomy Modpack"));
+
 		// Create pages
 		NbtList pages = new NbtList();
 		pages.add(NbtString.of(Text.Serializer.toJson(Text.literal("Welcome to the modpack! Here's how to use it..."))));
